@@ -1,0 +1,28 @@
+{
+  "name": "glogch",
+  "version": "0.0.1",
+  "description": "Git log integrated with ClubHouse.io",
+  "main": "src/index.ts",
+  "bin": {
+    "glogch": "./dist/index.js"
+  },
+  "repository": "github.com/jamillosantos/git-log-clubhouse",
+  "author": "J. Santos",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "x": "ts-node ./src/index.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^14.14.31",
+    "@types/prompts": "^2.0.9",
+    "@types/yargs": "^16.0.0",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.1.5"
+  },
+  "dependencies": {
+    "clubhouse-lib": "^0.10.0",
+    "prompts": "^2.4.0",
+    "yargs": "^16.2.0"
+  }
+}
