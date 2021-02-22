@@ -244,6 +244,17 @@ function rootCommand(yargs: yargs.Argv) {
       });
     },
     async (argv) => {
+      if (!argv.token && fs.existsSync(".glogch.json")) {
+        try {
+          const fileContent = fs.readFileSync(".glogch.json");
+          const data = JSON.parse(fileContent.toString());
+          argv.token = data.token;
+        } catch (e) {
+          console.error("error loading .glogch.json:", e);
+          process.exit(1);
+        }
+      }
+
       const workspace = new Workspace(argv.token!);
 
       /*************************************************************************
