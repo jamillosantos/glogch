@@ -1,17 +1,19 @@
 {
   "name": "glogch",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Git log integrated with ClubHouse.io",
   "main": "src/index.ts",
   "bin": {
     "glogch": "./dist/index.js"
   },
-  "repository": "github.com/jamillosantos/git-log-clubhouse",
-  "author": "J. Santos",
+  "repository": "github.com/jamillosantos/glogch",
+  "author": "Jota Santos",
   "license": "MIT",
   "private": false,
   "scripts": {
+    "build": "tsc -p tsconfig.json --outDir ./dist",
     "x": "ts-node ./src/index.ts",
+    "tsc": "tsc",
     "test": "jest",
     "test:watch": "jest --watch"
   },
