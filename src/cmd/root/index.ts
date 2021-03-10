@@ -27,6 +27,7 @@ interface Args {
   revisionRange?: string;
   includeMergeCommits: boolean;
   ignoreStories: boolean;
+  all: boolean;
 }
 
 type RenderElement =
@@ -238,6 +239,13 @@ function rootCommand(yargs: yargs.Argv) {
         describe: "When enabled, do not get any story information",
       });
 
+      yargs.option("all-commits", {
+        alias: "a",
+        type: "boolean",
+        default: false,
+        describe: "When enabled, do not get any story information",
+      });
+
       yargs.positional("revisionRange", {
         type: "string",
         describe: "revision range (ex: v2.6.1..HEAD)",
@@ -288,6 +296,7 @@ function rootCommand(yargs: yargs.Argv) {
           await gitLog({
             revisionRange: argv.revisionRange!,
             repo: argv.repo!,
+            all: argv.all,
           })
         ).filter((commit) => argv.includeMergeCommits || !commit.isMerge);
 

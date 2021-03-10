@@ -11,9 +11,14 @@ interface GitLogOpts {
   revisionRange: string;
 
   /**
-   * The
+   * The path of the repository.
    */
   repo: string;
+
+  /**
+   * List all commits.
+   */
+  all: boolean;
 }
 
 // Fields represent the fields that a `gitlog` will return.
@@ -38,10 +43,15 @@ export interface Commit extends Record<Fields, string> {
  *
  * @param opts
  */
-export const gitLog = async ({ revisionRange, repo = "." }: GitLogOpts) => {
+export const gitLog = async ({
+  revisionRange,
+  repo = ".",
+  all,
+}: GitLogOpts) => {
   const commits = await gitlogPromise<Fields>({
     branch: revisionRange,
     number: 1000000,
+    all,
     repo: repo,
     fields: [
       "hash",
