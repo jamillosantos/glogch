@@ -1,6 +1,6 @@
 {
   "name": "glogch",
-  "version": "0.0.4",
+  "version": "0.0.6",
   "description": "Git log integrated with ClubHouse.io",
   "main": "dist/index.js",
   "bin": {
